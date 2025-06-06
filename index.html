@@ -128,14 +128,54 @@
                     🎮 Play Doors Castle Online
                 </h2>
                 <div class="w-full max-w-4xl mx-auto">
-                    <iframe 
-                        src="https://www.miniplay.com/embed/doors-castle" 
-                        class="w-full h-96 md:h-[600px] game-iframe border-0"
-                        allowfullscreen
-                        loading="lazy"
-                        title="Doors Castle Game - Play Online">
-                    </iframe>
+                    <!-- Alternative Game URLs - Try different sources -->
+                    <div id="game-container" class="w-full h-96 md:h-[600px] bg-gray-100 rounded-2xl flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="mb-4 text-4xl">🎮</div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Play Doors Castle</h3>
+                            <div class="space-y-3">
+                                <button onclick="loadGame('https://www.miniplay.com/embed/doors-castle')" 
+                                        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors block w-full">
+                                    Play on Miniplay
+                                </button>
+                                <button onclick="loadGame('https://www.crazygames.com/embed/doors-castle')" 
+                                        class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition-colors block w-full">
+                                    Play on CrazyGames
+                                </button>
+                                <button onclick="loadGame('https://poki.com/en/g/doors-castle')" 
+                                        class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg transition-colors block w-full">
+                                    Play on Poki
+                                </button>
+                                <a href="https://www.miniplay.com/game/doors-castle" 
+                                   target="_blank" 
+                                   class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition-colors block text-center">
+                                    Open in New Tab
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                <script>
+                function loadGame(url) {
+                    const container = document.getElementById('game-container');
+                    container.innerHTML = `
+                        <iframe 
+                            src="${url}" 
+                            class="w-full h-full game-iframe border-0 rounded-2xl"
+                            allowfullscreen
+                            loading="lazy"
+                            title="Doors Castle Game - Play Online"
+                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+                        </iframe>
+                    `;
+                }
+                
+                // Auto-try loading the primary source after 2 seconds
+                setTimeout(() => {
+                    loadGame('https://www.miniplay.com/embed/doors-castle');
+                }, 2000);
+                </script>
                 <p class="text-center text-gray-600 mt-4 text-sm">
                     Use arrow keys or touch controls to navigate. Click objects to interact and solve puzzles.
                 </p>
